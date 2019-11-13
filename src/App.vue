@@ -1,16 +1,39 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <button
+      type="button"
+      class="btn btn-info btn-lg btn-block"
+      @click="reset"
+      v-if="contador != 0"
+    >RESET desde App.vue</button>
+    <app-visualizador></app-visualizador>
+    <app-operador></app-operador>
+
   </div>
 </template>
 
+<script>
+import Visualizador from "./components/Visualizador.vue";
+import Operador from "./components/Operador.vue";
+import { mapActions, mapGetters } from "vuex";
+
+export default {
+  methods: {
+    ...mapActions(["reset"])
+     
+  },
+  computed: {
+    ...mapGetters({ contador: "getContador" })
+  },
+  components: {
+    appVisualizador: Visualizador,
+    appOperador: Operador
+  }
+};
+</script>
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -28,5 +51,8 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+h1 {
+  margin-top: 50px;
 }
 </style>
