@@ -1,18 +1,19 @@
 <template>
   <div>
     <div class="row">
-      <div class="col-12 my-auto"> <span>Contador: {{contador}}</span> </div>
+      <div class="col-12 my-auto">
+        <span>Contador: {{ contador }}</span>
+      </div>
     </div>
   </div>
-
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 export default {
   computed: {
-    ...mapGetters({ contador: "getContador" })
-  }
+    ...mapGetters({ contador: "getContador" }),
+  },
 };
 </script>
 <style scoped>

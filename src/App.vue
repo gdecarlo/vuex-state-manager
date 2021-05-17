@@ -5,30 +5,30 @@
       class="btn btn-info btn-lg btn-block"
       @click="reset"
       v-if="contador != 0"
-    >RESET desde App.vue</button>
-    <app-visualizador></app-visualizador>
-    <app-operador></app-operador>
-
+    >
+      RESET desde App.vue
+    </button>
+    <AppVisualizador />
+    <AppOperador :cantidadParaAgregar="3"/>
   </div>
 </template>
 
 <script>
-import Visualizador from "./components/Visualizador.vue";
-import Operador from "./components/Operador.vue";
+import AppVisualizador from "./components/Visualizador.vue";
+import AppOperador from "./components/Operador.vue";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
   methods: {
-    ...mapActions(["reset"])
-     
+    ...mapActions(["reset"]),
   },
   computed: {
-    ...mapGetters({ contador: "getContador" })
+    ...mapGetters({ contador: "getContador" }),
   },
   components: {
-    appVisualizador: Visualizador,
-    appOperador: Operador
-  }
+    AppVisualizador,
+    AppOperador,
+  },
 };
 </script>
 <style>

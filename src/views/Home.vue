@@ -5,15 +5,3 @@
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import Visualizador from '@/components/Visualizador.vue'
-import Operador from '@/components/Operador.vue'
-
-export default {
-  name: 'home',
-  components: {
-     Visualizador,Operador
-  }
-}
-</script>
